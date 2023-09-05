@@ -1,0 +1,54 @@
+﻿@model ArellanoSysDevExam.Models.UpdateEmployeeViewModel
+
+@{
+}
+<h1>Edit or Delete Employee</h1>
+<form method="post" action="View" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Employee Id</label>
+        <input type="text" class="form-control" asp-for="employeeid" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">First Name</label>
+        <input type="text" class="form-control" asp-for="first_name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Middle Name</label>
+        <input type="text" class="form-control" asp-for="middle_name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Last Name</label>
+        <input type="text" class="form-control" asp-for="last_name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Date Hired</label>
+        <input type="date" class="form-control" asp-for="datehired">
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" asp-for="isactive" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+            Active Employee
+        </label>
+    </div>
+
+    <div class="mb-3">
+        <label for="Image" class="form-label">Employee Image</label>
+        <input class="form-control" type="file" id="formFile" onchange="preview()" asp-for="imagepath">
+    </div>
+    <img id="frame" src="../images/default.png" class="img-fluid" />
+
+    <script>
+        function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+            imagepath = frame.src
+            console.log(imagepath)
+        }
+    </script>
+
+
+    <br />
+    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-danger" 
+    asp-action="Delete" 
+    asp-controller="Employees">Delete</button>
+</form>

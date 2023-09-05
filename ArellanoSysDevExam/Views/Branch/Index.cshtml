@@ -1,0 +1,35 @@
+﻿@model List<ArellanoSysDevExam.Models.Domain.Branch>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Branches</h1>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Branch Code</th>
+            <th>Branch Name</th>
+            <th>Branch Manager</th>
+            <th>Date Opened</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var branch in Model)
+        {
+            <tr>
+                <td>@branch.branchcode</td>
+                <td>@branch.branchname</td>
+                <td>@branch.branch_manager</td>
+                <td>@branch.dateopened.ToString("dd-MM-yyy")</td>
+                <td><a href="branch/View/@branch.branchid">Edit/Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
